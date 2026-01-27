@@ -1,89 +1,82 @@
 :root {
-    --bg-dark: #01120c;
-    --accent: #c300fc;
-    --text-light: #e6e6e6;
-    --border-soft: rgba(195, 0, 252, 0.25);
+    --bg: #282d31;
+    --card: #00f6a1;
+    --text: #01120c;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: system-ui, sans-serif;
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+    background-color: var(--bg);
     min-height: 100vh;
+    padding: 2rem;
 }
 
-/* ---- Oldal grid ---- */
+/* ---- Fő elrendezés ---- */
 .page-layout {
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 1.5rem;
-    padding: 2rem;
+    align-items: stretch;
 }
 
 /* ---- Kártyák ---- */
 .card {
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-soft);
-    border-radius: 12px;
+    background-color: var(--card);
+    color: var(--text);
+    border-radius: 20px;
     padding: 1.25rem;
-    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
-/* Bal és jobb oldali kártyák */
-.card.side {
-    height: fit-content;
-}
-
-/* ---- Középső tartalom ---- */
-.content {
-    grid-column: 2 / 4;
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-soft);
-    border-radius: 14px;
+/* ---- Középső container ---- */
+.center-container {
+    background-color: var(--card);
+    color: var(--text);
+    border-radius: 24px;
     padding: 2rem;
 }
 
-/* ---- Tipográfia ---- */
-h1, h2, h3 {
-    color: var(--accent);
+/* ---- Képek ---- */
+.card img {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    align-self: center;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--card);
+    text-align: center;
+}
+
+/* ---- Tipó ---- */
+h2, h3 {
     font-weight: 600;
-    margin-bottom: 0.75rem;
 }
 
 p {
-    line-height: 1.6;
-    opacity: 0.9;
+    line-height: 1.5;
 }
 
-/* ---- Interakciók ---- */
-button {
-    background-color: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-button:hover {
-    background-color: var(--accent);
-    color: #01120c;
-}
-
-/* ---- Reszponzív ---- */
+/* ---- Responsive ---- */
 @media (max-width: 900px) {
     .page-layout {
         grid-template-columns: 1fr;
     }
 
-    .content {
-        grid-column: auto;
+    .card img {
+        width: 25%;
     }
 }
