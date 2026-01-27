@@ -49,6 +49,15 @@ body {
     align-self: center;
 }
 
+.center-container img {
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
 h1 {
     margin-bottom: 1rem;
     font-size: 2rem;
